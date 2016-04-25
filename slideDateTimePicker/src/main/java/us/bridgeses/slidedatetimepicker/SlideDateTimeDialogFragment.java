@@ -1,4 +1,4 @@
-package com.github.jjobes.slidedatetimepicker;
+package us.bridgeses.slidedatetimepicker;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 
 /**
  * <p>The {@code DialogFragment} that contains the {@link SlidingTabLayout}
@@ -184,7 +185,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
         mViewPager = (CustomViewPager) v.findViewById(R.id.viewPager);
         mSlidingTabLayout = (SlidingTabLayout) v.findViewById(R.id.slidingTabLayout);
         mButtonHorizontalDivider = v.findViewById(R.id.buttonHorizontalDivider);
-        mButtonVerticalDivider = v.findViewById(R.id.buttonVerticalDivider);
+        mButtonVerticalDivider = v.findViewById(R.id.buttonVerticalDivider1);
         mOkButton = (Button) v.findViewById(R.id.okButton);
         mCancelButton = (Button) v.findViewById(R.id.cancelButton);
     }

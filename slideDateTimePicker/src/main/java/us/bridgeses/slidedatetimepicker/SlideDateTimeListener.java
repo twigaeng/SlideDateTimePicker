@@ -1,4 +1,4 @@
-package com.github.jjobes.slidedatetimepicker;
+package us.bridgeses.slidedatetimepicker;
 
 import java.util.Date;
 

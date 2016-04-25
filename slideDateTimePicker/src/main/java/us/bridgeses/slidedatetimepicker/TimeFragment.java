@@ -1,4 +1,4 @@
-package com.github.jjobes.slidedatetimepicker;
+package us.bridgeses.slidedatetimepicker;
 
 import android.content.Context;
 import android.os.Build;
@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 import android.widget.TimePicker;
+
 
 /**
  * The fragment for the second page in the ViewPager that holds

@@ -1,4 +1,4 @@
-package com.github.jjobes.slidedatetimepicker;
+package us.bridgeses.slidedatetimepicker;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+
 
 /**
  * A custom {@link android.support.v4.view.ViewPager} implementation that corrects
