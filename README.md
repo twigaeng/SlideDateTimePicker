@@ -3,10 +3,19 @@ SlideDateTimePicker
 
 [![AndroidLibs](https://img.shields.io/badge/AndroidLibs-SlideDateTimePicker-brightgreen.svg?style=flat)](https://android-libs.com/lib/slidedatetimepicker?utm_source=github-badge&utm_medium=github-badge&utm_campaign=github-badge)
 
-SlideDateTimePicker is an Android library that displays a single DialogFragment in which the user can select a date and a time. The user can swipe between the DatePicker and TimePicker, and the tab underline will gradually animate as the user swipes. The colors of the tab indicator and divider lines are customizable to fit your project's theme. Tested on Android 4.0+.
+SlideDateTimePicker is an Android library that displays a single 
+DialogFragment in which the user can select a date and a time. 
+The user can swipe between the DatePicker and TimePicker, and the tab 
+underline will gradually animate as the user swipes. The colors of the 
+tab indicator and divider lines are customizable to fit your project's 
+theme.
+This version of SlideDateTimePicker also includes a None button to allow 
+your user to decline selecting a time and date. For the original 
+version without a None button check out 
+[jjobes' SlideDateTimePicker.](https://github.com/jjobes/SlideDateTimePicker) Tested on Android 4.0+.
 
-<img src="https://raw.github.com/jjobes/SlideDateTimePicker/master/screenshots/1.png" width="270" style="margin-right:10px;">
-<img src="https://raw.github.com/jjobes/SlideDateTimePicker/master/screenshots/2.png" width="270">
+<!--<img src="https://raw.github.com/jjobes/SlideDateTimePicker/master/screenshots/1.png" width="270" style="margin-right:10px;">
+<img src="https://raw.github.com/jjobes/SlideDateTimePicker/master/screenshots/2.png" width="270">-->
 
 Setup
 =====
@@ -33,6 +42,13 @@ private SlideDateTimeListener listener = new SlideDateTimeListener() {
     {
         // Do something with the date. This Date object contains
         // the date and time that the user has selected.
+    }
+    
+    @Override
+    public void onDateTimeNone()
+    {
+        // The user has declined to select a date. Handle this as
+        // appropriate.
     }
 
     @Override
@@ -106,26 +122,9 @@ Contributions are welcome. Please open up an issue in GitHub or submit a PR.
 
 Changelog
 =========
-### v1.0.4
-
-* Fixed issue where the DatePicker would shift to the left when scrolled vertically (thanks to [alexrainman](https://github.com/alexrainman))
-
-### v1.0.3
-
-* Update build.gradle
-
-### v1.0.2
-
-* Changed to Android Studio / Gradle Project
-
-### v1.0.1
-
-* Builder methods now correspond to outer class methods
-* Improved javadoc comments
-
 ### v1.0.0
 
-* First release
+* Forked from [jjobes' SlideDateTimePicker.](https://github.com/jjobes/SlideDateTimePicker)
 
 License
 =======
@@ -140,4 +139,6 @@ are Copyright (C) 2013 The Android Open Source Project and are licensed under th
 
 Acknowledgements
 ================
+Thanks to Jason Jobes for creating the original SlideDateTimePicker.
+
 Thanks to Arman Pagilagan's [blog post](http://armanpagilagan.blogspot.com/2014/05/creating-custom-date-and-time-picker-in.html) for the initial idea.
