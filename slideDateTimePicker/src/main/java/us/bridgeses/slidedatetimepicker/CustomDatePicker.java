@@ -1,4 +1,4 @@
-package com.github.jjobes.slidedatetimepicker;
+package us.bridgeses.slidedatetimepicker;
 
 import java.lang.reflect.Field;
 
@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
+
 
 /**
  * A subclass of {@link android.widget.DatePicker} that uses
