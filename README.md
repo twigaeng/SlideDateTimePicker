@@ -1,8 +1,6 @@
 SlideDateTimePicker
 ===================
 
-[![AndroidLibs](https://img.shields.io/badge/AndroidLibs-SlideDateTimePicker-brightgreen.svg?style=flat)](https://android-libs.com/lib/slidedatetimepicker?utm_source=github-badge&utm_medium=github-badge&utm_campaign=github-badge)
-
 SlideDateTimePicker is an Android library that displays a single 
 DialogFragment in which the user can select a date and a time. 
 The user can swipe between the DatePicker and TimePicker, and the tab 
@@ -24,7 +22,7 @@ To add this library to your project, add the following to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile project(':slideDateTimePicker')
+    compile 'us.bridgeses:slideDateTimePicker:1.0.0'
 }
 ```
 
