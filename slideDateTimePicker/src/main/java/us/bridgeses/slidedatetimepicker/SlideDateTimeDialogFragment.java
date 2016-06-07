@@ -203,20 +203,9 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
 
         // Set the colors of the horizontal and vertical lines for the
         // bottom buttons depending on the theme.
-        switch (mTheme)
-        {
-        case SlideDateTimePicker.HOLO_LIGHT:
-        case SlideDateTimePicker.HOLO_DARK:
-            mButtonHorizontalDivider.setBackgroundColor(lineColor);
-            mButtonVerticalDivider1.setBackgroundColor(lineColor);
-            mButtonVerticalDivider2.setBackgroundColor(lineColor);
-            break;
-
-        default:  // if no theme was specified, default to holo light
-            mButtonHorizontalDivider.setBackgroundColor(getResources().getColor(R.color.gray_holo_light));
-            mButtonVerticalDivider1.setBackgroundColor(getResources().getColor(R.color.gray_holo_light));
-            mButtonVerticalDivider2.setBackgroundColor(getResources().getColor(R.color.gray_holo_light));
-        }
+        mButtonHorizontalDivider.setBackgroundColor(lineColor);
+        mButtonVerticalDivider1.setBackgroundColor(lineColor);
+        mButtonVerticalDivider2.setBackgroundColor(lineColor);
 
         // Set the color of the selected tab underline if one was specified.
         if (mIndicatorColor != 0)
@@ -236,7 +225,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
 
     private void initTabs()
     {
-        // Set intial date on date tab
+        // Set initial date on date tab
         updateDateTab();
 
         // Set initial time on time tab
@@ -403,7 +392,8 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
                     mCalendar.get(Calendar.MONTH),
                     mCalendar.get(Calendar.DAY_OF_MONTH),
                     mMinDate,
-                    mMaxDate);
+                    mMaxDate,
+                    mIndicatorColor);
                 dateFragment.setTargetFragment(SlideDateTimeDialogFragment.this, 100);
                 return dateFragment;
             case 1:
@@ -412,7 +402,8 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
                     mCalendar.get(Calendar.HOUR_OF_DAY),
                     mCalendar.get(Calendar.MINUTE),
                     mIsClientSpecified24HourTime,
-                    mIs24HourTime);
+                    mIs24HourTime,
+                    mIndicatorColor);
                 timeFragment.setTargetFragment(SlideDateTimeDialogFragment.this, 200);
                 return timeFragment;
             default:
