@@ -24,6 +24,8 @@ public class CustomDatePicker extends DatePicker
 {
     private static final String TAG = "CustomDatePicker";
 
+    private int mColor;
+
     public CustomDatePicker(Context context, AttributeSet attrs)
     {
         super(context, attrs);
@@ -89,7 +91,10 @@ public class CustomDatePicker extends DatePicker
     }
 
     public void setColor(int color) {
-        changeDivider(color);
-        invalidate();
+        if (color != mColor) {
+            changeDivider(color);
+            invalidate();
+            mColor = color;
+        }
     }
 }

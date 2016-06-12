@@ -24,9 +24,10 @@ public class CustomTimePicker extends TimePicker
 {
     private static final String TAG = "CustomTimePicker";
 
+    private int mColor;
+
     public CustomTimePicker(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.e(TAG, "In constructor");
 
         changeDivider(Color.RED);
     }
@@ -88,7 +89,10 @@ public class CustomTimePicker extends TimePicker
     }
 
     public void setColor(int color) {
-        changeDivider(color);
-        invalidate();
+        if (color != mColor) {
+            changeDivider(color);
+            invalidate();
+            mColor = color;
+        }
     }
 }
