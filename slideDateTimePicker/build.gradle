@@ -3,15 +3,15 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
-    version = '1.1.0'
+    version = '2.0.0'
     group = 'us.bridgeses'
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 17
+        targetSdkVersion 24
     }
 
     buildTypes {
@@ -27,7 +27,43 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.android.support:support-v13:24.0.0'
+}
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name 'us.bridgeses.SlideDateTimePicker'
+                url "https://github.com/tbridges42/SlideDateTimePicker"
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'tbridges42'
+                        name 'Tony Bridges'
+                        email 'tbridges42@gmail.com'
+                    }
+                }
+                scm {
+                    connection 'https://github.com/tbridges42/SlideDateTimePicker'
+                    developerConnection 'https://github.com/tbridges42/SlideDateTimePicker'
+                    url "https://github.com/tbridges42/SlideDateTimePicker"
+
+                }
+            }
+        }
+    }
 }
 
 task generateSourcesJar(type: Jar) {

@@ -22,7 +22,7 @@ To add this library to your project, add the following to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'us.bridgeses:slideDateTimePicker:1.0.0'
+    compile 'us.bridgeses:slideDateTimePicker:2.0.0'
 }
 ```
 
@@ -120,9 +120,21 @@ Contributions are welcome. Please open up an issue in GitHub or submit a PR.
 
 Changelog
 =========
+
+### v2.0.0
+
+* Switched away from support fragments
+* Now requires API >= 17
+
+### v1.1.0
+
+* Made None button optional
+* Made accent color change all line colors
+
 ### v1.0.0
 
 * Forked from [jjobes' SlideDateTimePicker.](https://github.com/jjobes/SlideDateTimePicker)
+* Added None button
 
 License
 =======
