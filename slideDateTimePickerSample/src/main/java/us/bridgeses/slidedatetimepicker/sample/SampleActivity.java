@@ -73,9 +73,29 @@ public class SampleActivity extends Activity
                     //.setIs24HourTime(true)
                     .setTheme(SlideDateTimePicker.HOLO_DARK)
                     .setIndicatorColor(Color.BLUE)
+                        .setHasNone(true)
                     .build()
                     .show();
             }
         });
     }
+
+    public void setListener(ClickListener listener) {
+        mButton.setOnClickListener(listener);
+    }
+
+    protected static class ClickListener implements OnClickListener {
+
+        private SlideDateTimePicker picker;
+
+        public ClickListener(SlideDateTimePicker picker) {
+            this.picker = picker;
+        }
+
+        @Override
+        public void onClick(View v) {
+            picker.show();
+        }
+    }
 }
+

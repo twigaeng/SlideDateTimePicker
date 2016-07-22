@@ -121,6 +121,11 @@ Contributions are welcome. Please open up an issue in GitHub or submit a PR.
 Changelog
 =========
 
+### v2.0.1
+
+* Fix broken None button
+* Add regression tests
+
 ### v2.0.0
 
 * Switched away from support fragments

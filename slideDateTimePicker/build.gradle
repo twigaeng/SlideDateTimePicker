@@ -6,12 +6,14 @@ android {
     compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
-    version = '2.0.0'
+    version = '2.0.1'
     group = 'us.bridgeses'
 
     defaultConfig {
+        versionName = '2.0.1'
         minSdkVersion 17
         targetSdkVersion 24
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -28,6 +30,7 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v13:24.0.0'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
 }
 
 install {
