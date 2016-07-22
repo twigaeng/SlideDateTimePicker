@@ -16,7 +16,6 @@ dependencies:
     override:
         - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-23.0.3,android-24,extra-google-m2repository,extra-google-google_play_services,extra-android-support
         - chmod +x ./gradlew
-        - echo -e "bintray.user:dummy_user\nbintray.apikey:dummykey" | slideDateTimePicker/local.properties
         - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies --stacktrace
 
 test:
