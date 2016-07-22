@@ -34,3 +34,6 @@ test:
         - adb shell input keyevent 82
         # run tests  against the emulator.
         - ./gradlew connectedAndroidTest -PdisablePreDex
+    post:
+        - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+        - find . -type f -regex ".*app/build/outputs/androidTest-results/connected/*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
