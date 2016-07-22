@@ -186,6 +186,7 @@ public class SlideDateTimePicker
                         mMaxDate,
                         mIsClientSpecified24HourTime,
                         mIs24HourTime,
+                        mHasNone,
                         mTheme,
                         mIndicatorColor);
 

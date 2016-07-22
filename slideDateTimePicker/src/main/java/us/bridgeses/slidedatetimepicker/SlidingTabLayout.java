@@ -234,7 +234,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             // Used to get a reference to each tab's TextView in order to
             // update the text in setTabText().
             mTabTitleViews.put(i, tabTitleView);
-
+            tabTitleView.setTag(i);
             mTabStrip.addView(tabView);
         }
     }

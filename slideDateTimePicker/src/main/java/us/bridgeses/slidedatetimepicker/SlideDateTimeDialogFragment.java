@@ -237,7 +237,11 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
         // Set the color of the selected tab underline if one was specified.
         if (mIndicatorColor != 0)
             mSlidingTabLayout.setSelectedIndicatorColors(mIndicatorColor);
-        if (!mHasNone) {
+        if (mHasNone) {
+            mNoneButton.setVisibility(View.VISIBLE);
+            mButtonVerticalDivider2.setVisibility(View.VISIBLE);
+        }
+        else {
             mNoneButton.setVisibility(View.GONE);
             mButtonVerticalDivider2.setVisibility(View.GONE);
         }
