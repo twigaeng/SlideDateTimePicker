@@ -24,7 +24,11 @@ dependencies:
 test:
     override:
         # start the emulator
-        - emulator -avd circleci-android22 -no-audio -no-window:
+        - android create avd -n emulatorwithgoogleapi22 -t 12 --tag google_apis
+        - echo 'vm.heapSize=512' >> ~/.android/avd/emulatorwithgoogleapi22.ini
+        - echo 'hw.ramSize=1024' >> ~/.android/avd/emulatorwithgoogleapi22.ini
+        - cat ~/.android/avd/emulatorwithgoogleapi22.ini
+        - emulator -avd emulatorwithgoogleapi22 -no-audio -no-window :
             background: true
             parallel: true
         # wait for it to have booted
@@ -32,6 +36,9 @@ test:
         # unlock the emulator screen
         - sleep 30
         - fb-adb shell input keyevent 82
+        - fb-adb shell input keyevent 82
+        - fb-adb shell input keyevent 82
+        - fb-adb rcmd screencap -p > $CIRCLE_ARTIFACTS/screen-$(date +"%T").png
         # run tests  against the emulator.
         - ./gradlew connectedAndroidTest -PdisablePreDex
         - fb-adb rcmd screencap -p > $CIRCLE_ARTIFACTS/screen-$(date +"%T").png
