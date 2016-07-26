@@ -2,6 +2,9 @@ package us.bridgeses.slidedatetimepicker.sample;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.contrib.PickerActions;
@@ -234,5 +237,48 @@ public class SlideDateTimePickerTest {
         onView(withId(R.id.timePicker)).perform(swipeRight());
         onView(withId(R.id.timePicker)).check(matches(not(isDisplayed())));
         onView(withId(R.id.datePicker)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testSetColorDoesntCrash() throws Exception {
+        SlideDateTimePicker picker =
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                        .setListener(new SlideDateTimeListener() {
+                            @Override
+                            public void onDateTimeSet(Date date) {
+
+                            }
+                        })
+                        .build();
+        SampleActivity.ClickListener clickListener = new SampleActivity.ClickListener(picker);
+        activityTestRule.getActivity().setListener(clickListener);
+        onView(withId(R.id.button)).perform(click());
+        picker.setIndicatorColor(Color.WHITE);
+        assertEquals(1,1);
+    }
+
+    @Test
+    public void testRotateDoesntCrash() throws Exception {
+        SlideDateTimePicker picker =
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                        .setListener(new SlideDateTimeListener() {
+                            @Override
+                            public void onDateTimeSet(Date date) {
+
+                            }
+                        })
+                        .build();
+        SampleActivity.ClickListener clickListener = new SampleActivity.ClickListener(picker);
+        activityTestRule.getActivity().setListener(clickListener);
+        onView(withId(R.id.button)).perform(click());
+        activityTestRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        onView(withId(R.id.slidingTabLayout)).check(matches(isDisplayed()));
+        activityTestRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        onView(withId(R.id.slidingTabLayout)).check(matches(isDisplayed()));
+        activityTestRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+        onView(withId(R.id.slidingTabLayout)).check(matches(isDisplayed()));
+        activityTestRule.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+        onView(withId(R.id.slidingTabLayout)).check(matches(isDisplayed()));
+        assertEquals(1,1);
     }
 }
