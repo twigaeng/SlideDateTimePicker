@@ -22,7 +22,7 @@ To add this library to your project, add the following to your `build.gradle`:
 
 ```groovy
 dependencies {
-    compile 'us.bridgeses:slideDateTimePicker:2.0.0'
+    compile 'us.bridgeses:slideDateTimePicker:2.2.0'
 }
 ```
 
@@ -120,6 +120,10 @@ Contributions are welcome. Please open up an issue in GitHub or submit a PR.
 
 Changelog
 =========
+
+### v2.2.0
+
+* Make width responsive to better support wider layouts
 
 ### v2.1.0
 
