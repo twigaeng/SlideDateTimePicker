@@ -1,10 +1,10 @@
 package us.bridgeses.slidedatetimepicker;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -55,7 +55,7 @@ public class TimeFragment extends Fragment
 
         try
         {
-            mCallback = (TimeChangedListener) getTargetFragment();
+            mCallback = (TimeChangedListener) getParentFragment();
         }
         catch (ClassCastException e)
         {

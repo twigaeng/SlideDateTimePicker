@@ -1,7 +1,5 @@
 package us.bridgeses.slidedatetimepicker.sample;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.test.espresso.Espresso;
@@ -9,6 +7,8 @@ import android.support.test.espresso.contrib.PickerActions;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import org.hamcrest.Matchers;
@@ -55,7 +55,7 @@ public class SlideDateTimePickerTest {
     @Test
     public void testBasicPickerShown() throws Exception {
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(new SlideDateTimeListener() {
                             @Override
                             public void onDateTimeSet(Date date) {
@@ -75,7 +75,7 @@ public class SlideDateTimePickerTest {
     @Test
     public void testNonePickerShown() throws Exception {
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(new SlideDateTimeListener() {
                             @Override
                             public void onDateTimeSet(Date date) {
@@ -97,7 +97,7 @@ public class SlideDateTimePickerTest {
     public void testOkButton() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -112,7 +112,7 @@ public class SlideDateTimePickerTest {
     public void testCancelButton() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -127,7 +127,7 @@ public class SlideDateTimePickerTest {
     public void testNoneButton() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -142,7 +142,7 @@ public class SlideDateTimePickerTest {
     public void testDateReturned() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -164,7 +164,7 @@ public class SlideDateTimePickerTest {
     public void testTimeReturned() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -186,7 +186,7 @@ public class SlideDateTimePickerTest {
     public void testTabs() throws Exception {
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(listener)
                         .setHasNone(true)
                         .build();
@@ -203,7 +203,7 @@ public class SlideDateTimePickerTest {
 
     @Test
     public void testSwipe() throws Exception {
-        FragmentManager fm = activityTestRule.getActivity().getFragmentManager();
+        FragmentManager fm = activityTestRule.getActivity().getSupportFragmentManager();
         SlideDateTimeListener listener = Mockito.mock(SlideDateTimeListener.class);
         SlideDateTimePicker picker =
                 new SlideDateTimePicker.Builder(fm)
@@ -216,10 +216,9 @@ public class SlideDateTimePickerTest {
         onView(withId(R.id.button)).perform(click());
         onView(withId(R.id.viewPager)).check(matches(isDisplayed()));
 
-        Fragment fragment = fm
-                .findFragmentByTag(SlideDateTimeDialogFragment.TAG_SLIDE_DATE_TIME_DIALOG_FRAGMENT);
+        Fragment fragment = fm.findFragmentByTag(SlideDateTimeDialogFragment.TAG_SLIDE_DATE_TIME_DIALOG_FRAGMENT);
         Espresso.registerIdlingResources(new ViewPagerIdlingResource(
-                (ViewPager)fragment.getView().findViewById(R.id.viewPager), "ViewPager")
+                (ViewPager) fragment.getView().findViewById(R.id.viewPager), "ViewPager")
         );
         onView(withId(R.id.datePicker)).perform(swipeLeft());
         onView(withId(R.id.timePicker)).check(matches(isDisplayed()));
@@ -232,7 +231,7 @@ public class SlideDateTimePickerTest {
     @Test
     public void testSetColorDoesntCrash() throws Exception {
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(new SlideDateTimeListener() {
                             @Override
                             public void onDateTimeSet(Date date) {
@@ -250,7 +249,7 @@ public class SlideDateTimePickerTest {
     @Test
     public void testRotateDoesntCrash() throws Exception {
         SlideDateTimePicker picker =
-                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getFragmentManager())
+                new SlideDateTimePicker.Builder(activityTestRule.getActivity().getSupportFragmentManager())
                         .setListener(new SlideDateTimeListener() {
                             @Override
                             public void onDateTimeSet(Date date) {
