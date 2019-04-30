@@ -6,13 +6,13 @@ import java.util.Date;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -421,7 +421,7 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
             switch (position)
             {
             case 0:
-                DateFragment dateFragment = DateFragment.newInstance(
+                return DateFragment.newInstance(
                     mTheme,
                     mCalendar.get(Calendar.YEAR),
                     mCalendar.get(Calendar.MONTH),
@@ -429,18 +429,14 @@ public class SlideDateTimeDialogFragment extends DialogFragment implements DateF
                     mMinDate,
                     mMaxDate,
                     mIndicatorColor);
-                dateFragment.setTargetFragment(SlideDateTimeDialogFragment.this, 100);
-                return dateFragment;
             case 1:
-                TimeFragment timeFragment = TimeFragment.newInstance(
+                return TimeFragment.newInstance(
                     mTheme,
                     mCalendar.get(Calendar.HOUR_OF_DAY),
                     mCalendar.get(Calendar.MINUTE),
                     mIsClientSpecified24HourTime,
                     mIs24HourTime,
                     mIndicatorColor);
-                timeFragment.setTargetFragment(SlideDateTimeDialogFragment.this, 200);
-                return timeFragment;
             default:
                 return null;
             }

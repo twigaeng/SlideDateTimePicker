@@ -4,9 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,7 +22,7 @@ import us.bridgeses.slidedatetimepicker.SlideDateTimePicker;
  *
  */
 @SuppressLint("SimpleDateFormat")
-public class SampleActivity extends Activity
+public class SampleActivity extends AppCompatActivity
 {
     private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
     private Button mButton;
@@ -65,7 +65,7 @@ public class SampleActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                new SlideDateTimePicker.Builder(getFragmentManager())
+                new SlideDateTimePicker.Builder(getSupportFragmentManager())
                     .setListener(listener)
                     .setInitialDate(new Date())
                     //.setMinDate(minDate)

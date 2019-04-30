@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         versionCode = 5
         versionName = '2.0'
         applicationId "com.github.jjobes.slidedatetimepicker.sample"
         minSdkVersion 17
-        targetSdkVersion 24
+        targetSdkVersion 28
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,14 +22,15 @@ android {
 }
 
 dependencies {
-    compile project(':slideDateTimePicker')
-    androidTestCompile 'com.android.support:support-annotations:24.0.0'
-    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
-    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
-    androidTestCompile 'org.mockito:mockito-core:2.0.2-beta'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile ('com.android.support.test.espresso:espresso-contrib:2.2'){
+    implementation project(':slideDateTimePicker')
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation "com.google.dexmaker:dexmaker:1.2"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.25.0"
+    androidTestImplementation 'org.mockito:mockito-core:2.24.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation ('com.android.support.test.espresso:espresso-contrib:2.2'){
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
